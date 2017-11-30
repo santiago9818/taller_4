@@ -1,0 +1,33 @@
+# taller_4
+#include <stdio.h>
+
+int buscar, encontrado, i;//declaracion de variables enteras
+int a[20] = {3,4,6,2,3,4,3,5,3,2,3,2,3,2,5,7,9,23,124,54};// creacion de vector ya con datos ingresados
+main()
+{
+    printf("numero a buscar:");// mensaje 
+    scanf("%d", &buscar);// digitar el numero a buscar 
+    printf("Usted ingreso %d\n",buscar);// mensaje
+    encontrado = 0;// inicializacion de variables 
+    for (i=0;i<20;i++)// ciclo para recorrer el arreglo
+    {
+        if (a[i] == buscar)// condicional si lo que esta en el vector es igual al numero que el usuario digito 
+        {
+            encontrado = 1; // se iguala enontrado en 1 
+        }
+    }
+    if(encontrado==1)// si la variable encontrado es igual a 1
+	   {
+        printf("Numero encontrado!"); // mensaje que el dato fue encontrado
+    }
+    else// sino
+    {
+        printf("Numero no encontrado!\nLista de Numeros ");// mensaje el numero no fue encontrado
+        for (i=0; i<20; i++)// cilo para recorrer el arreglo 
+        {
+            (i<3)?printf("%d, ",a[i]):printf("%d.",a[i]);// mensaje para mostrar la lista de los numeros 
+        }
+    }
+    getchar();
+    return 0 ;
+}
