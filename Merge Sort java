@@ -1,0 +1,74 @@
+# taller_4
+import java.util.Scanner;
+
+public class Main {
+// atributos 
+private int[] array;
+private int[] tempMergArr;
+private int length;
+
+public static void main(String a[]) {// metodo para mostrar en pantalla 
+    Scanner leer = new Scanner (System.in);// reaion de objeto de la libreria Scannner
+    System.out.println("digite el tamaño del arreglo");// mensaje
+    int n = leer.nextInt();// pedir tamaño del arreglo
+    int[] Arreglo = new int [n];// vector 
+    for(int i= 0;i<n;i++)// ciclo
+    {
+     System.out.println("digite el numero en la posicion " + i); // mensaje
+      Arreglo[i] =leer.nextInt();// pedir datos para guardarlos en el arreglo 
+    }
+    
+    System.out.println("arreglado:");// mensaje 
+    Main obj = new Main();//   crear un objeto de la clase 
+    obj.sort(Arreglo); //llamar lo que esta en el metodo 
+    for (int i : Arreglo) {// ciclo
+        System.out.print(i);
+        System.out.print(" ");
+
+    }
+}
+
+public void sort(int Arreglo[]) {// metodo para llamar los atributos 
+    this.array = Arreglo;  // el atributo arreglo es igual al arreglo
+    this.length = Arreglo.length;// el tamaño es igual al tamaño del arreglo
+    this.tempMergArr = new int[length];// arreglo temprotal 
+    doMergeSort(0, length - 1);
+}
+
+private void doMergeSort(int lowerIndex, int higherIndex) {// metodo 
+
+    if (lowerIndex < higherIndex) {//  si inferior es menor que mayor 
+        int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+        doMergeSort(lowerIndex, middle);
+        doMergeSort(middle + 1, higherIndex);
+        mergeParts(lowerIndex, middle, higherIndex);
+    }
+}
+
+private void mergeParts(int lowerIndex, int middle, int higherIndex) {// metodo 
+
+    for (int i = lowerIndex; i <= higherIndex; i++) {
+        tempMergArr[i] = array[i];
+    }
+    int i = lowerIndex;
+    int j = middle + 1;
+    int k = lowerIndex;
+    while (i <= middle && j <= higherIndex) {
+        if (tempMergArr[i] <= tempMergArr[j]) {
+            array[k] = tempMergArr[i];
+            i++;
+        } else {
+            array[k] = tempMergArr[j];
+            j++;
+        }
+        k++;
+    }
+    while (i <= middle) {
+        array[k] = tempMergArr[i];
+        k++;
+        i++;
+    }
+
+}
+
+}
