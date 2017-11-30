@@ -1,0 +1,43 @@
+# taller_4
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] arg) {
+
+    int[] x = new int[100];
+
+    for (int i = 0; i < x.length; i++) {
+        x[i] = i * 10;
+    }
+    int search = 30;
+    System.out.println("Index of " + search + " = " + InterpolationSearch.search(x, search));
+
+}
+
+static class InterpolationSearch {
+
+    public static int search(int[] sortedArray, int toFind) {
+
+// Returns index of toFind in sortedArray, or -1 if not found 
+final int NOT_FOUND = -1;
+int low = 0;
+int high = sortedArray.length - 1;
+int lastMid = -1;
+while (true) {
+int mid = (low + high) / 2;
+if (sortedArray[mid] == toFind) {
+return mid;
+}
+if (toFind > sortedArray[mid]) {
+low = mid + 1;
+} else {
+high = mid - 1;
+}
+if (lastMid == mid) {
+return NOT_FOUND;
+}
+lastMid = mid;
+}
+}
+}
+}
