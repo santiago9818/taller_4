@@ -1,0 +1,27 @@
+# taller_4
+int main()
+{
+    int a[50],n,i,j,aux; // iniializaion de variables enteras y arreglo
+     printf("tamaño del arreglo?");// menseje para poder digitar el tamaño del vector
+    scanf("%d",&n);// la instruccion para poder digitar 
+    
+    
+    printf(" digite los numeros que desea en el  arreglo:");// mensaje para digitar los numeros en el arreglo
+    
+    for(i=0;i<n;++i) // ciclo para poder guardar los valores en cada posicion del arreglo
+        scanf("%d",&a[i]);// pedir los valores 
+        
+    for(i=1;i<n;++i)// ciclo  para reorrer cada posicion del arreglo
+        for(j=0;j<(n-i);++j)// ciclo para  recorres la posicion anterior de arreglo
+            if(a[j]>a[j+1])// un condicional para preguntar que lo que esta ne la posicion j es mayor que la siguiente posiion de j
+            {
+                aux=a[j];// se guarda en una variable el menor dato
+                a[j]=a[j+1];// lo que esta en j se hace igual a lo que estaba en la siguiente posicion
+                a[j+1]=aux;// el dato menor que estaba guardado en la variable auxiliar es igual a lo que esa en la posicionj +1 
+            }
+     printf("los numeros organizados son : ");  // mensaje para mostrar los numeros organizados     
+    for(i=0;i<n;++i)// cilo para recorrer otra vez el arreglo
+        printf("%d ",a[i]);// imprime ahora el vector con los numeros organizados 
+ 
+    return 0;
+}
