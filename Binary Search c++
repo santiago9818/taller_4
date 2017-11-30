@@ -1,0 +1,46 @@
+# taller_4
+#include <stdio.h>
+ 
+int main()
+{
+   int c, inf, sup, mitad, n, buscar, array[100];// delaracion de variables enteras 
+ 
+   printf("tamaño del arreglo\n");// mensaje 
+   scanf("%d",&n);// ingresar por el usuario el temaño del arreglo
+ 
+   
+ 
+   for (c = 0; c < n; c++)// ciclo que recorre el arreglo 
+   {
+   	 printf("ingrese  numeros en la posion ", c); // mensaje para ingresar los datos
+		scanf("%d",&array[c]);// instruccion para ingresar los datos del arreglo
+   }
+   
+ 
+   printf("El numero a buscar?\n");//  mensaje el numero a buscar
+   scanf("%d", & buscar);// instruccion para digitar el numero a buscar
+ 
+   inf = 0;// inicializacion de varaible 
+   sup = n - 1;
+   mitad = (inf+sup)/2;
+ 
+   while (inf <= sup) // mientras inferior  sea menor que superior 
+   {
+      if (array[mitad] < buscar)// si el arreglo en la mitad es menor que el numero buscar entonces
+         inf = mitad + 1;    // inferior es igual a la mitad mas uno 
+      
+      else if (array[mitad] == buscar) // si el arreglo es igual al numero al buscar 
+      {
+         printf("%d encontrado en el indice %d.\n", buscar, mitad + 1);// mensaje el numero es enontrado 
+         break;
+      }
+      else
+         sup = mitad - 1;// sino superior es igaul a la mitad mas 1
+ 
+      mitad = (inf + sup)/2;
+   }
+   if (inf > sup)
+      printf("No encontrado! %d no esta en el arreglo .\n", buscar);// mensaje si el numero a busar no es encontrado 
+ 
+   return 0;   
+}
