@@ -1,15 +1,20 @@
-# taller_4
+
+#include<stdio.h>
+ 
 int main()
 {
-    int a[50],n,i,j,aux; // iniializaion de variables enteras y arreglo
+    int n,i,j,aux; // iniializaion de variables enteras y arreglo
      printf("tamaño del arreglo?");// menseje para poder digitar el tamaño del vector
     scanf("%d",&n);// la instruccion para poder digitar 
+    int a[n];
     
+   // mensaje para digitar los numeros en el arreglo
     
-    printf(" digite los numeros que desea en el  arreglo:");// mensaje para digitar los numeros en el arreglo
-    
-    for(i=0;i<n;++i) // ciclo para poder guardar los valores en cada posicion del arreglo
-        scanf("%d",&a[i]);// pedir los valores 
+    for(i=0;i<n;i++) // ciclo para poder guardar los valores en cada posicion del arreglo
+    {
+    	printf(" digite los numeros que desea en el  arreglo:",i );   scanf("%d",&a[i]);// pedir los valores 
+	}
+      
         
     for(i=1;i<n;++i)// ciclo  para reorrer cada posicion del arreglo
         for(j=0;j<(n-i);++j)// ciclo para  recorres la posicion anterior de arreglo
