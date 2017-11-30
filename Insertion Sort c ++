@@ -1,0 +1,35 @@
+# taller_4
+#include<stdio.h>
+#include<conio.h>
+
+int main(){
+	
+	int i,j,aux,t;// declaracion de variables enteras 
+
+	printf("Tamaño del arreglo: ");// mensaje para saber el tamaño del arreglo 
+	scanf("%i",&t);// esta instruccion el usuario puede digitar el tamaño del arreglo
+		int a[t];// se rea el arreglo de tipo entero
+	for(i=0;i<t;i++)// cicllo para recorrer el arreglo en cada posicion 
+	{
+		printf("Digite numero en la posicion %i:  ",i);scanf("%i",&a[i]);// se le pide al usuario que digite los valores en ada posicion del arreglo
+	}
+	
+	
+	for(i = 0; i < t; i++){// ciclo para recorrer el arreglo
+            j = i;// se inicializa j que es igual a i
+            aux = a[i];// se guarda en la variable auxiliar el dato que esta guardado en el arreglo en la posiion i
+            while ((j > 0) && (aux < a[j - 1])) { // en un ciclo si mientras j es mayor que 0 y lo que esta  en auxiliar es menor que j -1 entonces
+                a[j] = a[j - 1];// lo que esta en la posiion j ahora va hacer igual a lo que esta en la posicion anterior a j
+                j--; // j va decrementando 
+            }
+            a[j] = aux;// lo que esta en la posiion j ahora tiene el valor que estaba en la variable auxliar
+    }
+	printf("los numeros organizados son : ");// mensaje para mostrar lo numeros organizados 
+	for(i=0;i<t;i++){// cilo que recorre el arreglo
+		printf("%i ",a[i]);// instruccion para mostrar los numeros organizados 
+	}
+
+	
+	getch();
+	return 0;
+}
