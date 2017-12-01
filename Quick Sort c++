@@ -1,35 +1,35 @@
 # taller_4
 
-void quicksort(int [10],int,int);
+void quicksort(int [10],int,int);// metodo 
 
 int main(){
-int x[20],size,i;
+int x[20],size,i;// declaracion de variables 
 
-printf("Ingrese el numero del arreglo: ");
-scanf("%d",&size);
+printf("Ingrese el numero del arreglo: ");// mensaje para ingresar valores
+scanf("%d",&size);// instruccion para digitar valores 
 
-printf("Ingrese %d elementos: ",size);
-for(i=0;i<size;i++)
-scanf("%d",&x[i]);
+printf("Ingrese %d elementos: ",size);// mensaje para poder dijistar los elementos en el arreglo
+for(i=0;i<size;i++)// ciclo que recorre el arreglo
+scanf("%d",&x[i]);// instruccion que guarda los numeros del arreglo
 
-quicksort(x,0,size-1);
+quicksort(x,0,size-1);// llamar metodo 
 
-printf("Elementos Ordenados: ");
-for(i=0;i<size;i++)
-printf(" %d",x[i]);
+printf("Elementos Ordenados: ");// los elementos ordenados 
+for(i=0;i<size;i++)// ciclo del arreglo
+printf(" %d",x[i]);// impresion de los elementos ordenados 
 
 return 0;
 }
 
-void quicksort(int x[10],int first,int last){
-int pivot,j,temp,i;
+void quicksort(int x[10],int first,int last){// metodo donde se hacen las validaciones
+int pivot,j,temp,i;// declaracion de variables
 
- if(first<last){
-     pivot=first;
-     i=first;
-     j=last;
+ if(first<last){// condicional 
+     pivot=first;// se guardaa en la variable lo que hay en la primera posicion del arreglo
+     i=first;// i es igual a primero
+     j=last;// j es igual a ultimo 
 
-     while(i<j){
+     while(i<j){// mientras i sea menor que j
          while(x[i]<=x[pivot]&&i<last)
              i++;
          while(x[j]>x[pivot])
